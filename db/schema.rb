@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_020244) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_cooking_repertoires_on_name", unique: true
   end
 
 end
