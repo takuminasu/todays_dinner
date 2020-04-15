@@ -7,7 +7,7 @@ class CookingRepertoiresController < ApplicationController
     @cooking_repertoire = CookingRepertoire.new(cooking_repertoire_params)
 
     if @cooking_repertoire.save
-      redirect_to :root, notice: "レパートリーに#{@cooking_repertoire.name}を追加しました。"
+      redirect_to :root, notice: t('.added_repertoire', {name: @cooking_repertoire.name})
     else
       render :new
     end
