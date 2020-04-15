@@ -1,0 +1,6 @@
+<%= flash.notice %>
+<h1>レパートリー一覧</h1>
+<% @cooking_repertoires.each do |cooking_repertoire| %>
+  <li><%= cooking_repertoire.name %></li>
+<% end %>
+<%= link_to "レパートリー名新規登録", new_cooking_repertoires_path %>
