@@ -11,7 +11,6 @@ class CookingRepertoiresController < ApplicationController
     else
       render :new
     end
-
   end
 
   private

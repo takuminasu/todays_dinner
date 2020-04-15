@@ -1,6 +1,5 @@
 = flash.notice
-h1
-  = t '.title'
+h1 = t '.title'
 = form_with model: @cooking_repertoire, local: true do |form|
   - if @cooking_repertoire.errors.any?
     ul
@@ -8,4 +7,4 @@ h1
         li
           = message
   = form.text_field :name
-  = form.submit "登録する"
+  = form.submit
