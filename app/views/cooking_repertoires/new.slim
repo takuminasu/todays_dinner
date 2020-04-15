@@ -4,7 +4,6 @@ h1 = t '.title'
   - if @cooking_repertoire.errors.any?
     ul
       - @cooking_repertoire.errors.full_messages.each do |message|
-        li
-          = message
+        li = message
   = form.text_field :name
   = form.submit
