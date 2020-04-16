@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      cooking_repertoire:
+    attributes:
+      cooking_repertoire:
+        name: レパートリー名

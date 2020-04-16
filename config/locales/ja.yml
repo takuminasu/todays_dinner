@@ -1,0 +1,4 @@
+ja:
+  cooking_repertoires:
+    create:
+      added_repertoire: "レパートリーに%{name}を追加しました。"
