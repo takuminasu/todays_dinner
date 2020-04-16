@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      cooking_repertoire: 'レパートリー'
+      cooking_repertoire:
     attributes:
       cooking_repertoire:
         id: 'ID: '
