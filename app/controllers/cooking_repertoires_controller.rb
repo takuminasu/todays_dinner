@@ -1,4 +1,8 @@
 class CookingRepertoiresController < ApplicationController
+  def index
+    @cooking_repertoires = CookingRepertoire.all
+  end
+
   def new
     @cooking_repertoire = CookingRepertoire.new
   end

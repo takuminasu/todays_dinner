@@ -1,0 +1,5 @@
+= flash.notice
+h1 = t '.title'
+- @cooking_repertoires.each do |cooking_repertoire|
+  li = cooking_repertoire.name
+= link_to (t '.new_registration'), new_cooking_repertoires_path

@@ -2,3 +2,6 @@ ja:
   cooking_repertoires:
     new:
       title: 新規登録
+    index:
+      title: レパートリー一覧
+      new_registration: レパートリー名新規登録
