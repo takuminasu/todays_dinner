@@ -1,0 +1,14 @@
+h1 = t '.title'
+li
+  = t 'activerecord.attributes.cooking_repertoire.id'
+  = @cooking_repertoire.id
+li
+  = t 'activerecord.attributes.cooking_repertoire.name'
+  = @cooking_repertoire.name
+li
+  = t 'attributes.created_at'
+  = @cooking_repertoire.created_at.to_s(:datetime_jp)
+li
+  = t 'attributes.updated_at'
+  = @cooking_repertoire.updated_at.to_s(:datetime_jp)
+= link_to (t '.back_list'), root_path
