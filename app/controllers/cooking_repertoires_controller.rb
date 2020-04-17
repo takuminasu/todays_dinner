@@ -30,7 +30,7 @@ class CookingRepertoiresController < ApplicationController
     if @cooking_repertoire.update(cooking_repertoire_params)
       redirect_to :root, notice: t('.edited_repertoire', {name: @cooking_repertoire.name})
     else
-      render :new
+      render :edit
     end
   end
 
