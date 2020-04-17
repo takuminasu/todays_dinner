@@ -34,6 +34,11 @@ class CookingRepertoiresController < ApplicationController
     end
   end
 
+  def destroy
+    @cooking_repertoire = CookingRepertoire.find(params[:id])
+    redirect_to :root, notice: t('.deleted_repertoire', {name: @cooking_repertoire.name})
+  end
+
   private
 
   def cooking_repertoire_params

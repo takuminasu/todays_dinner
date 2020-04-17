@@ -8,6 +8,8 @@ ja:
     show: 
       title: レパートリーの詳細
       back_list: 一覧へ戻る
+      delete_confirmation: レパートリー名「%{name}」を削除します。よろしいですか？
       edit: 編集
+      delete: 削除
     edit:
       title: レパートリー名編集
