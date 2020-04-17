@@ -2,3 +2,5 @@ ja:
   cooking_repertoires:
     create:
       added_repertoire: レパートリーに%{name}を追加しました。
+    update:
+      edited_repertoire: レパートリー名を%{name}に編集しました。
