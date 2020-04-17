@@ -19,12 +19,6 @@ class CookingRepertoiresController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def edit
-  end
-
   def update
     if @cooking_repertoire.update(cooking_repertoire_params)
       redirect_to :root, notice: t('.edited_repertoire', {name: @cooking_repertoire.name})
