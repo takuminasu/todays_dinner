@@ -4,4 +4,8 @@ ja:
       cooking_repertoire:
     attributes:
       cooking_repertoire:
-        name: レパートリー名
+        id: 'ID: '
+        name: 'レパートリー名: '
+  attributes:
+      created_at: '登録日時: '
+      updated_at: '更新日時: '

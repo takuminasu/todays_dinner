@@ -17,6 +17,10 @@ class CookingRepertoiresController < ApplicationController
     end
   end
 
+  def show
+    @cooking_repertoire = CookingRepertoire.find(params[:id])
+  end
+
   private
 
   def cooking_repertoire_params
