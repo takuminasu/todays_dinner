@@ -1,4 +1,6 @@
 class CookingRepertoiresController < ApplicationController
+  before_action :find_repertoire, only: [:show, :edit, :update, :destroy]
+
   def index
     @cooking_repertoires = CookingRepertoire.all
   end
@@ -18,15 +20,12 @@ class CookingRepertoiresController < ApplicationController
   end
 
   def show
-    @cooking_repertoire = CookingRepertoire.find(params[:id])
   end
 
   def edit
-    @cooking_repertoire = CookingRepertoire.find(params[:id])
   end
 
   def update
-    @cooking_repertoire = CookingRepertoire.find(params[:id])
     if @cooking_repertoire.update(cooking_repertoire_params)
       redirect_to :root, notice: t('.edited_repertoire', {name: @cooking_repertoire.name})
     else
@@ -35,7 +34,6 @@ class CookingRepertoiresController < ApplicationController
   end
 
   def destroy
-    @cooking_repertoire = CookingRepertoire.find(params[:id])
     redirect_to :root, notice: t('.deleted_repertoire', {name: @cooking_repertoire.name})
   end
 
@@ -43,5 +41,9 @@ class CookingRepertoiresController < ApplicationController
 
   def cooking_repertoire_params
     params.require(:cooking_repertoire).permit(:name)
+  end
+
+  def find_repertoire
+    @cooking_repertoire = CookingRepertoire.find(params[:id])
   end
 end
