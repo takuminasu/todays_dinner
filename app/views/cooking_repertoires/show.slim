@@ -11,4 +11,6 @@ li
 li
   = t 'attributes.updated_at'
   = @cooking_repertoire.updated_at.to_s(:datetime_jp)
+= link_to (t '.edit'), edit_cooking_repertoire_path
+<br>
 = link_to (t '.back_list'), root_path

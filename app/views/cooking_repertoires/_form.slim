@@ -1,0 +1,7 @@
+= form_with model: cooking_repertoire, local: true do |form|
+  - if cooking_repertoire.errors.any?
+    ul
+      - cooking_repertoire.errors.full_messages.each do |message|
+        li = message
+  = form.text_field :name
+  = form.submit
