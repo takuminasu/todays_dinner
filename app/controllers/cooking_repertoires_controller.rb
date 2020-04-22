@@ -13,7 +13,7 @@ class CookingRepertoiresController < ApplicationController
     @cooking_repertoire = CookingRepertoire.new(cooking_repertoire_params)
 
     if @cooking_repertoire.save
-      redirect_to :root, notice: t('.added_repertoire', {name: @cooking_repertoire.name})
+      redirect_to :root, notice: t('.added_repertoire', { name: @cooking_repertoire.name })
     else
       render :new
     end
@@ -21,14 +21,14 @@ class CookingRepertoiresController < ApplicationController
 
   def update
     if @cooking_repertoire.update(cooking_repertoire_params)
-      redirect_to :root, notice: t('.edited_repertoire', {name: @cooking_repertoire.name})
+      redirect_to :root, notice: t('.edited_repertoire', { name: @cooking_repertoire.name })
     else
       render :edit
     end
   end
 
   def destroy
-    redirect_to :root, notice: t('.deleted_repertoire', {name: @cooking_repertoire.name})
+    redirect_to :root, notice: t('.deleted_repertoire', { name: @cooking_repertoire.name })
   end
 
   private
