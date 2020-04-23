@@ -1,5 +1,6 @@
 class CookingRepertoiresController < ApplicationController
   before_action :find_repertoire, only: [:show, :edit, :update, :destroy]
+  before_action :list_tags, only: [:new, :create]
 
   def index
     @cooking_repertoires = CookingRepertoire.all
@@ -34,10 +35,14 @@ class CookingRepertoiresController < ApplicationController
   private
 
   def cooking_repertoire_params
-    params.require(:cooking_repertoire).permit(:name)
+    params.require(:cooking_repertoire).permit(:name, { tag_ids: [] })
   end
 
   def find_repertoire
     @cooking_repertoire = CookingRepertoire.find(params[:id])
+  end
+
+  def list_tags
+    @tags = Tag.where.not(name: t('.erase'))
   end
 end

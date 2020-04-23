@@ -6,3 +6,5 @@ ja:
       edited_repertoire: レパートリー名を%{name}に編集しました。
     destroy:
       deleted_repertoire: レパートリー名「%{name}」を削除しました。
+    new:
+      erase: 消去
