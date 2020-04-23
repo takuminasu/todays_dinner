@@ -4,8 +4,6 @@
       - cooking_repertoire.errors.full_messages.each do |message|
         li = message
   = form.label :name
-  = form.text_field :name
-  br
-  = form.collection_check_boxes :tag_ids, tags, :id, :name
-  br
+  p = form.text_field :name
+  p = form.collection_check_boxes :tag_ids, tags, :id, :name
   = form.submit

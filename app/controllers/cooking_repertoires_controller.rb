@@ -1,5 +1,6 @@
 class CookingRepertoiresController < ApplicationController
   before_action :find_repertoire, only: [:show, :edit, :update, :destroy]
+  before_action :list_tags, only: [:new, :create]
 
   def index
     @cooking_repertoires = CookingRepertoire.all
@@ -7,12 +8,11 @@ class CookingRepertoiresController < ApplicationController
 
   def new
     @cooking_repertoire = CookingRepertoire.new
-    @tags = Tag.where.not(name: t('.erase'))
   end
 
   def create
     @cooking_repertoire = CookingRepertoire.new(cooking_repertoire_params)
-
+    
     if @cooking_repertoire.save
       redirect_to :root, notice: t('.added_repertoire', { name: @cooking_repertoire.name })
     else
@@ -40,5 +40,9 @@ class CookingRepertoiresController < ApplicationController
 
   def find_repertoire
     @cooking_repertoire = CookingRepertoire.find(params[:id])
+  end
+
+  def list_tags
+    @tags = Tag.where.not(name: t('.erase'))
   end
 end
