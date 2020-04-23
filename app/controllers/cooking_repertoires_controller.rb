@@ -7,6 +7,7 @@ class CookingRepertoiresController < ApplicationController
 
   def new
     @cooking_repertoire = CookingRepertoire.new
+    @tags = Tag.where.not(name: t('.erase'))
   end
 
   def create
@@ -34,7 +35,7 @@ class CookingRepertoiresController < ApplicationController
   private
 
   def cooking_repertoire_params
-    params.require(:cooking_repertoire).permit(:name)
+    params.require(:cooking_repertoire).permit(:name, { tag_ids: [] })
   end
 
   def find_repertoire
