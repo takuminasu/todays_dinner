@@ -7,4 +7,5 @@ ja:
     destroy:
       deleted_repertoire: レパートリー名「%{name}」を削除しました。
     new:
+    edit:
       erase: 消去

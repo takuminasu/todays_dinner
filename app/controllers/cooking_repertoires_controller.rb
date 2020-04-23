@@ -1,6 +1,6 @@
 class CookingRepertoiresController < ApplicationController
   before_action :find_repertoire, only: [:show, :edit, :update, :destroy]
-  before_action :list_tags, only: [:new, :create]
+  before_action :list_tags, only: [:new, :create, :edit, :update]
 
   def index
     @cooking_repertoires = CookingRepertoire.all
