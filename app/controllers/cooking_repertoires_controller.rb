@@ -43,6 +43,6 @@ class CookingRepertoiresController < ApplicationController
   end
 
   def list_tags
-    @tags = Tag.where.not(name: t('.erase'))
+    @tags = Tag.except_erase
   end
 end

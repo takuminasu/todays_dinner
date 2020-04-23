@@ -2,10 +2,13 @@ ja:
   activerecord:
     models:
       cooking_repertoire:
+      tag:
     attributes:
       cooking_repertoire:
         id: 'ID: '
         name: 'レパートリー名: '
+      tag:
+        erase: 消去
   attributes:
       created_at: '登録日時: '
       updated_at: '更新日時: '
