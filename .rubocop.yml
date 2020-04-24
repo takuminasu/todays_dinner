@@ -12,7 +12,7 @@ Style/SymbolArray:
 
 # 1行あたりの文字数を100文字にする
 Layout/LineLength:
-  Max: 100
+  Max: 120
 
 # rubocop起動時に警告が出たのでtrue or falseの選択
 Layout/SpaceAroundMethodCallOperator:
