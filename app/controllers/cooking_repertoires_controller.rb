@@ -7,12 +7,12 @@ class CookingRepertoiresController < ApplicationController
 
   def new
     @cooking_repertoire = CookingRepertoire.new
-    @tags = Tag.valid_except_conditions
+    @tags = Tag.valid
   end
 
   def create
     @cooking_repertoire = CookingRepertoire.new(cooking_repertoire_params)
-    @tags = Tag.valid_except_conditions
+    @tags = Tag.valid
 
     if @cooking_repertoire.save
       redirect_to :root, notice: t('.added_repertoire', { name: @cooking_repertoire.name })
@@ -22,11 +22,11 @@ class CookingRepertoiresController < ApplicationController
   end
 
   def edit
-    @tags = Tag.valid_except_conditions
+    @tags = Tag.valid
   end
 
   def update
-    @tags = Tag.valid_except_conditions
+    @tags = Tag.valid
 
     if @cooking_repertoire.update(cooking_repertoire_params)
       redirect_to :root, notice: t('.edited_repertoire', { name: @cooking_repertoire.name })
