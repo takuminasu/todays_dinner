@@ -10,7 +10,7 @@ Style/FrozenStringLiteralComment:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
-# 1行あたりの文字数を100文字にする
+# 1行あたりの文字数を120文字にする
 Layout/LineLength:
   Max: 120
 
