@@ -3,7 +3,6 @@ h1 = t '.title'
 - @tags.each do |tag|
   li = tag.name
   - if tag.cooking_repertoire_tags.exists?
-    div = t '.repertoire_name'
     - tag.cooking_repertoire_tags.each do |cooking_repertoire_tag|
       div = link_to cooking_repertoire_tag.cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire_tag.cooking_repertoire.id)
   - else
