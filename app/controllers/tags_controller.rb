@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tag.valid
+    @tags = Tag.category
   end
 end
