@@ -1,0 +1,9 @@
+h1 = t '.title'
+= link_to t('.to_cooking_repertoires'), cooking_repertoires_path
+- @tags.each do |tag|
+  h2 = tag.name
+  - if tag.cooking_repertoire_tags.exists?
+    - tag.cooking_repertoire_tags.each do |cooking_repertoire_tag|
+      li = link_to cooking_repertoire_tag.cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire_tag.cooking_repertoire.id)
+  - else
+    = t '.no_repertoire_name'
