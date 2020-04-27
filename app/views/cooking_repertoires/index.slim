@@ -4,3 +4,4 @@ h1 = t '.title'
 - @cooking_repertoires.each do |cooking_repertoire|
   li = link_to cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire.id)
 = link_to (t '.new_registration'), new_cooking_repertoire_path
+div = link_to '献立を決める', new_menu_path
