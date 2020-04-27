@@ -9,3 +9,7 @@ ja:
     new:
     edit:
       delete: 消去
+  helpers:
+    submit:
+      menu:
+        create: 献立を決定する

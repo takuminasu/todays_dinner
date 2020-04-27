@@ -1,4 +1,4 @@
-h1 = t '.title'
+h1 = t('.title')
 li
   = CookingRepertoire.human_attribute_name(:id)
   = @cooking_repertoire.id
@@ -19,5 +19,5 @@ li
   = CookingRepertoire.human_attribute_name(:updated_at)
   = @cooking_repertoire.updated_at.to_s(:datetime_jp)
 div = link_to t('.edit'), edit_cooking_repertoire_path
-div = link_to t('.delete'), @cooking_repertoire, method: :delete, data: { confirm: (t '.delete_confirmation', {name: @cooking_repertoire.name}) }
+div = link_to t('.delete'), @cooking_repertoire, method: :delete, data: { confirm: t('.delete_confirmation', {name: @cooking_repertoire.name}) }
 div = link_to t('.back_list'), root_path

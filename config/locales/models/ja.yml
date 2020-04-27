@@ -10,6 +10,8 @@ ja:
         tag: 'タグ: '
       tag:
         delete: 消去
+      menu:
+        date: 献立
   attributes:
       created_at: '登録日時: '
       updated_at: '更新日時: '

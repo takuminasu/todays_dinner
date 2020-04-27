@@ -4,4 +4,7 @@ class CookingRepertoire < ApplicationRecord
   has_many :cooking_repertoire_tags
   has_many :tags, through: :cooking_repertoire_tags
   accepts_nested_attributes_for :cooking_repertoire_tags
+  has_many :menus
+
+  scope :random_id, -> { offset(rand(CookingRepertoire.count)).first.id }
 end
