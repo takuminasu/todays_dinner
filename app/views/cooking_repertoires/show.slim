@@ -1,18 +1,23 @@
 h1 = t '.title'
 li
-  = t 'activerecord.attributes.cooking_repertoire.id'
+  = CookingRepertoire.human_attribute_name(:id)
   = @cooking_repertoire.id
 li
-  = t 'activerecord.attributes.cooking_repertoire.name'
+  = CookingRepertoire.human_attribute_name(:name)
   = @cooking_repertoire.name
 li
-  = t 'attributes.created_at'
+  = CookingRepertoire.human_attribute_name(:tag)
+  - @cooking_repertoire.cooking_repertoire_tags.each.with_index(1) do |cooking_repertoire_tag, index|
+    - if index == @cooking_repertoire.cooking_repertoire_tags.size
+      = cooking_repertoire_tag.tag.name
+    - else
+      = "#{cooking_repertoire_tag.tag.name}, "
+li
+  = CookingRepertoire.human_attribute_name(:created_at)
   = @cooking_repertoire.created_at.to_s(:datetime_jp)
 li
-  = t 'attributes.updated_at'
+  = CookingRepertoire.human_attribute_name(:updated_at)
   = @cooking_repertoire.updated_at.to_s(:datetime_jp)
-= link_to (t '.edit'), edit_cooking_repertoire_path
-br
-= link_to (t '.delete'), @cooking_repertoire, method: :delete, data: { confirm: (t '.delete_confirmation', {name: @cooking_repertoire.name}) }
-br
-= link_to (t '.back_list'), root_path
+div = link_to t('.edit'), edit_cooking_repertoire_path
+div = link_to t('.delete'), @cooking_repertoire, method: :delete, data: { confirm: (t '.delete_confirmation', {name: @cooking_repertoire.name}) }
+div = link_to t('.back_list'), root_path

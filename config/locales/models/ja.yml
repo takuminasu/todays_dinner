@@ -7,6 +7,7 @@ ja:
       cooking_repertoire:
         id: 'ID: '
         name: 'レパートリー名: '
+        tag: 'タグ: '
       tag:
         delete: 消去
   attributes:
