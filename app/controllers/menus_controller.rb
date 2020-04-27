@@ -4,7 +4,7 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = Menu.new(menu_params)
+    @menu = Menu.new(menu_params.merge(cooking_repertoire_id: CookingRepertoire.random_id))
 
     if @menu.save
       redirect_to menu_path(@menu)
@@ -20,6 +20,6 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.require(:menu).permit(:date).merge(cooking_repertoire_id: CookingRepertoire.random_id)
+    params.require(:menu).permit(:date)
   end
 end
