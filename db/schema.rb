@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_063725) do
+ActiveRecord::Schema.define(version: 2020_04_24_063657) do
 
   create_table "cooking_repertoire_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cooking_repertoire_id", null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_04_22_063725) do
     t.index ["name"], name: "index_cooking_repertoires_on_name", unique: true
   end
 
+  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "date", null: false
+    t.bigint "cooking_repertoire_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cooking_repertoire_id"], name: "index_menus_on_cooking_repertoire_id"
+    t.index ["date"], name: "index_menus_on_date", unique: true
+  end
+
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -37,4 +46,5 @@ ActiveRecord::Schema.define(version: 2020_04_22_063725) do
 
   add_foreign_key "cooking_repertoire_tags", "cooking_repertoires"
   add_foreign_key "cooking_repertoire_tags", "tags"
+  add_foreign_key "menus", "cooking_repertoires"
 end
