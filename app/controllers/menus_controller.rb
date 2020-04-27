@@ -1,6 +1,5 @@
 class MenusController < ApplicationController
   def new
-    @today = Date.today
     @menu = Menu.new
   end
 

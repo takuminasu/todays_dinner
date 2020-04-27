@@ -3,5 +3,5 @@
   ul
     - @menu.errors.full_messages.each do |message|
       li = message
-  = form.date_field :date, value: @today
+  = form.date_field :date, value: Date.today
   = form.submit
