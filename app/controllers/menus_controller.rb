@@ -7,15 +7,22 @@ class MenusController < ApplicationController
   end
 
   def create
-    7.times do |i|
+    case params["menu"]["period_id"]
+    when "1" then
       @menu = Menu.new(menu_params.merge(cooking_repertoire_id: CookingRepertoire.random_id))
-      puts i
-      if 0 < i
-        @menu.date += i
+      if @menu.save
+        redirect_to menu_path(@menu)
+      else
+        render :new
       end
-      @menu.save
+    when "2" then
+      7.times do |i|
+        @menu = Menu.new(menu_params.merge(cooking_repertoire_id: CookingRepertoire.random_id))
+        @menu.date += i
+        @menu.save
+      end
+      redirect_to menus_path
     end
-    redirect_to menus_path
   end
 
   def show
