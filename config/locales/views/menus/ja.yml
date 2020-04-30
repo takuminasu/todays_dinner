@@ -1,7 +1,7 @@
 ja:
   menus:
-    show:
-      title: 今日の献立は
+    index:
+      decide_menu: 献立を決める
     new:
       one_day: 1日
       seven_days: 7日
