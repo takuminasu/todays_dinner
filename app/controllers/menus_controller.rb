@@ -8,9 +8,9 @@ class MenusController < ApplicationController
   end
 
   def create
-    period = params[:menu][:period_id].to_i
+    period = params[:menu][:frequency].to_i
     date = Date.parse(params[:menu][:date])
-    Menu.select_days(period, date)
+    Menu.create_for(period, date)
     redirect_to menus_path
   end
 end
