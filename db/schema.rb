@@ -48,3 +48,10 @@ ActiveRecord::Schema.define(version: 2020_04_24_063657) do
   add_foreign_key "cooking_repertoire_tags", "tags"
   add_foreign_key "menus", "cooking_repertoires"
 end
+
+class CreateMenus < ActiveRecord::Migration[6.0]
+  def change
+    create_table :menus do |t|
+      t.integer :frequency, default: 1
+  end
+end
