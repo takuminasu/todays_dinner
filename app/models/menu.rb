@@ -7,7 +7,7 @@ class Menu < ApplicationRecord
     to = date + period - 1
     (date..to).each do |day|
       menu = Menu.find_or_initialize_by(date: day)
-      menu.update_attributes!({ date: day, cooking_repertoire_id: CookingRepertoire.random_id })
+      menu.update_attributes!({ cooking_repertoire_id: CookingRepertoire.random_id })
     end
   end
 end
