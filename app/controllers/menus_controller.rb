@@ -1,25 +1,27 @@
 class MenusController < ApplicationController
+  def index
+    @menus = Menu.where('date >= ?', Date.today)
+  end
+
   def new
     @menu = Menu.new
   end
 
   def create
-    @menu = Menu.new(menu_params.merge(cooking_repertoire_id: CookingRepertoire.random_id))
-
-    if @menu.save
-      redirect_to menu_path(@menu)
-    else
-      render :new
-    end
-  end
-
-  def show
-    @menu = Menu.find_by(date: Date.today)
+    period = params[:menu][:period].to_i
+    from_date = Date.parse(params[:menu][:date])
+    to_date = from_date + period - 1
+    Menu.make(from_date, to_date)
+    redirect_to menus_path, notice: added_message(from_date, to_date)
   end
 
   private
 
-  def menu_params
-    params.require(:menu).permit(:date)
+  def added_message(from_date, to_date)
+    if from_date == to_date
+      t('.added_menu', { day: from_date })
+    else
+      t('.added_menus', { start_day: from_date, end_day: to_date })
+    end
   end
 end

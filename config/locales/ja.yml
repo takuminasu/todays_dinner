@@ -9,6 +9,10 @@ ja:
     new:
     edit:
       delete: 消去
+  menus:
+    create:
+      added_menu: '%{day}の献立を作成しました'
+      added_menus: '%{start_day}から%{end_day}までの献立を作成しました'
   helpers:
     submit:
       menu:
