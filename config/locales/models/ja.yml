@@ -3,6 +3,7 @@ ja:
     models:
       cooking_repertoire:
       tag:
+      menu:
     attributes:
       cooking_repertoire:
         id: 'ID: '
@@ -12,6 +13,9 @@ ja:
         delete: 消去
       menu:
         date: 献立
+      menu/period:
+        one_day: 1日
+        seven_days: 7日
   attributes:
       created_at: '登録日時: '
       updated_at: '更新日時: '
