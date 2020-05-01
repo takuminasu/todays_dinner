@@ -1,8 +1,4 @@
 = form_with model: @menu, local: true do |form|
-  - if @menu.errors.any?
-  ul
-    - @menu.errors.full_messages.each do |message|
-      li = message
   = form.date_field :date, value: Date.today
   div = form.select :period, Menu.periods.keys.to_a, {}
   div = form.submit
