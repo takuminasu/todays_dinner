@@ -1,5 +1,6 @@
+= flash.notice
 h1 = t('.title')
-= link_to t('.to_cooking_repertoires'), cooking_repertoires_path
+div = link_to t('.new_registration'), new_cooking_repertoire_path
 - @tags.each do |tag|
   h2 = tag.name
   - if tag.cooking_repertoire_tags.exists?
