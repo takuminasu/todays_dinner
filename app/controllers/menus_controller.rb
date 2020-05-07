@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.where('date >= ?', Date.today)
+    @menus = Menu.where('date >= ?', Date.today).order(:date)
   end
 
   def new
