@@ -17,3 +17,6 @@ ja:
     submit:
       menu:
         create: 献立を決定する
+  time:
+    formats:
+      default: '%Y/%m/%d'

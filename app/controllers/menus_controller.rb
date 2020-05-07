@@ -19,9 +19,9 @@ class MenusController < ApplicationController
 
   def added_message(from_date, to_date)
     if from_date == to_date
-      t('.added_menu', { day: from_date })
+      t('.added_menu', { day: l(from_date) })
     else
-      t('.added_menus', { start_day: from_date, end_day: to_date })
+      t('.added_menus', { start_day: l(from_date), end_day: l(to_date) })
     end
   end
 end
