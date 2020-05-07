@@ -20,4 +20,4 @@ li
   = @cooking_repertoire.updated_at.to_s(:datetime_jp)
 div = link_to t('.edit'), edit_cooking_repertoire_path
 div = link_to t('.delete'), @cooking_repertoire, method: :delete, data: { confirm: t('.delete_confirmation', {name: @cooking_repertoire.name}) }
-div = link_to t('.back_list'), root_path
+div = link_to t('.back_list'), tags_path

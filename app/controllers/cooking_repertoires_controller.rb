@@ -36,7 +36,7 @@ class CookingRepertoiresController < ApplicationController
   end
 
   def destroy
-    redirect_to :root, notice: t('.deleted_repertoire', { name: @cooking_repertoire.name })
+    redirect_to :tags, notice: t('.deleted_repertoire', { name: @cooking_repertoire.name })
   end
 
   private
