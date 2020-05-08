@@ -16,6 +16,7 @@ ja:
   cooking_repertoire_tags:
     create:
       deleted_repertoire: レパートリー名「%{name}」を削除しました。
+      failed_delete: 削除に失敗しました
   helpers:
     submit:
       menu:
