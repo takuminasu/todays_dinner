@@ -6,9 +6,9 @@ ja:
       menu:
     attributes:
       cooking_repertoire:
-        id: 'ID: '
-        name: 'レパートリー名: '
-        tag: 'タグ: '
+        id: ID
+        name: レパートリー名
+        tag: タグ
       tag:
         delete: 消去
       menu:
@@ -16,6 +16,10 @@ ja:
         period:
           one_day: 1日
           seven_days: 7日
+    errors:
+      messages:
+        no_select: タグを1つ以上指定してください
+        more_than_3: タグは最大で3つまでしか指定できません
   attributes:
-      created_at: '登録日時: '
-      updated_at: '更新日時: '
+      created_at: 登録日時
+      updated_at: 更新日時
