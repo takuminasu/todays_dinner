@@ -17,3 +17,4 @@ ja:
       title: レパートリー名編集
     form:
       to_tags: タグ一覧へ
+      supplement_info: 複数選択可、3つまで
