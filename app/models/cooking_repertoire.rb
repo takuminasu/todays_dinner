@@ -1,6 +1,6 @@
 class CookingRepertoire < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validate :cooking_repertoire_tags_record
+  validate :tag_number_limit_validation
 
   has_many :cooking_repertoire_tags
   has_many :tags, through: :cooking_repertoire_tags
@@ -11,7 +11,7 @@ class CookingRepertoire < ApplicationRecord
 
   private
 
-  def cooking_repertoire_tags_record
+  def tag_number_limit_validation
     if cooking_repertoire_tags.empty?
       errors.add(:base, I18n.t('activerecord.errors.messages.no_select'))
     elsif cooking_repertoire_tags.size > 3
