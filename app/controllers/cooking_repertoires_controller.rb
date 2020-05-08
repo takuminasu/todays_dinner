@@ -29,7 +29,7 @@ class CookingRepertoiresController < ApplicationController
     @tags = Tag.category
 
     if @cooking_repertoire.update(cooking_repertoire_params)
-      redirect_to :root, notice: t('.edited_repertoire', { name: @cooking_repertoire.name })
+      redirect_to tags_path, notice: t('.edited_repertoire', { name: @cooking_repertoire.name })
     else
       render :edit
     end
