@@ -1,5 +1,6 @@
 class CookingRepertoire < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+  validate :tag_size_limit
 
   has_many :cooking_repertoire_tags
   has_many :tags, through: :cooking_repertoire_tags
@@ -7,4 +8,14 @@ class CookingRepertoire < ApplicationRecord
   has_many :menus
 
   scope :random_id, -> { offset(rand(CookingRepertoire.count)).first.id }
+
+  private
+
+  def tag_size_limit
+    if cooking_repertoire_tags.empty?
+      errors.add(:base, I18n.t('activerecord.errors.messages.no_select'))
+    elsif cooking_repertoire_tags.size > 3
+      errors.add(:base, I18n.t('activerecord.errors.messages.more_than_3'))
+    end
+  end
 end

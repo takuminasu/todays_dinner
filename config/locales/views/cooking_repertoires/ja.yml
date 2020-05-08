@@ -10,7 +10,11 @@ ja:
       title: レパートリーの詳細
       back_list: 一覧へ戻る
       delete_confirmation: レパートリー名「%{name}」を削除します。よろしいですか？
+      break: ': '
       edit: 編集
       delete: 削除
     edit:
       title: レパートリー名編集
+    form:
+      to_tags: タグ一覧へ
+      supplement_info: 複数選択可、3つまで
