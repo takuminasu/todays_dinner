@@ -13,6 +13,10 @@ ja:
     create:
       added_menu: '%{day}の献立を作成しました'
       added_menus: '%{start_day}から%{end_day}までの献立を作成しました'
+  cooking_repertoire_tags:
+    create:
+      deleted_repertoire: レパートリー名「%{name}」を削除しました。
+      failed_delete: 削除に失敗しました
   helpers:
     submit:
       menu:
