@@ -15,7 +15,7 @@ class CookingRepertoiresController < ApplicationController
     @tags = Tag.category
 
     if @cooking_repertoire.save
-      redirect_to :root, notice: t('.added_repertoire', { name: @cooking_repertoire.name })
+      redirect_to tags_path, notice: t('.added_repertoire', { name: @cooking_repertoire.name })
     else
       render :new
     end

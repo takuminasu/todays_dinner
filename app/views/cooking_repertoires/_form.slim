@@ -7,3 +7,4 @@
   = form.text_field :name
   div = form.collection_check_boxes :tag_ids, tags, :id, :name
   = form.submit
+= link_to t('.to_tags'), tags_path
