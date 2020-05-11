@@ -9,7 +9,7 @@ class CookingRepertoire < ApplicationRecord
 
   scope :deleted, -> { joins(:tags).where(tags: { name: Tag.human_attribute_name(:delete) }) }
   scope :valid, -> { where.not(id: CookingRepertoire.deleted) }
-  scope :random_id, -> { CookingRepertoire.valid.sample.id }
+  scope :random, -> { CookingRepertoire.valid.sample }
 
   private
 
