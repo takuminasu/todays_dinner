@@ -7,7 +7,9 @@ class CookingRepertoire < ApplicationRecord
   accepts_nested_attributes_for :cooking_repertoire_tags
   has_many :menus
 
-  scope :random_id, -> { offset(rand(CookingRepertoire.count)).first.id }
+  scope :deleted, -> { joins(:tags).where(tags: { name: Tag.human_attribute_name(:delete) }) }
+  scope :valid, -> { where.not(id: CookingRepertoire.deleted) }
+  scope :random, -> { CookingRepertoire.valid.sample }
 
   private
 

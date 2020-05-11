@@ -10,9 +10,9 @@ Style/FrozenStringLiteralComment:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
-# 1行あたりの文字数を120文字にする
+# 1行あたりの文字数を150文字にする
 Layout/LineLength:
-  Max: 120
+  Max: 150
 
 # rubocop起動時に警告が出たのでtrue or falseの選択
 Layout/SpaceAroundMethodCallOperator:
