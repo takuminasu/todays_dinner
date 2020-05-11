@@ -8,7 +8,7 @@ ja:
       deleted_repertoire: レパートリー名「%{name}」を削除しました。
     new:
     edit:
-      delete: 消去
+      delete: 削除
   menus:
     create:
       added_menu: '%{day}の献立を作成しました'
