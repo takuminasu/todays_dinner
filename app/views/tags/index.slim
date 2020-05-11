@@ -3,8 +3,9 @@ h1 = t('.title')
 div = link_to t('.new_registration'), new_cooking_repertoire_path
 - @tags.each do |tag|
   h2 = tag.name
-  - if tag.cooking_repertoire_tags.exists?
-    - tag.cooking_repertoire_tags.each do |cooking_repertoire_tag|
-      li = link_to cooking_repertoire_tag.cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire_tag.cooking_repertoire.id)
+  - if tag.cooking_repertoires.present?
+    - tag.cooking_repertoires.each do |cooking_repertoire|
+      - unless cooking_repertoire.tags.exists?(name: t('activerecord.attributes.tag.delete'))
+        li = link_to cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire.id)
   - else
     = t('.no_repertoire_name')
