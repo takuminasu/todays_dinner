@@ -5,7 +5,7 @@ class Menu < ApplicationRecord
 
   def self.make(from, to, not_duplicate_day)
     ActiveRecord::Base.transaction do
-      (from..to).each { |day| one_day(not_duplicate_day, day) }
+      (from..to).each { |day| make_for_one_day(not_duplicate_day, day) }
     end
   rescue StandardError => e
     puts e.message
@@ -14,7 +14,7 @@ class Menu < ApplicationRecord
   class << self
     private
 
-    def one_day(not_duplicate_day, day)
+    def make_for_one_day(not_duplicate_day, day)
       tags = exclude_tags(not_duplicate_day, day)
       exclude_repertoire = CookingRepertoire.joins(:tags).where(tags: { id: tags })
       cooking_repertoire_id = CookingRepertoire.valid.where.not(id: exclude_repertoire).sample.id
