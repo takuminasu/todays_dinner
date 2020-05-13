@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  before_action :initialize_menu_params, only: [:create]
   def index
     @menus = Menu.where('date >= ?', Date.today).order(:date)
   end
@@ -8,7 +9,6 @@ class MenusController < ApplicationController
   end
 
   def create
-    menu_params
     if Menu.make(@from_date, @to_date, @not_duplicate)
       redirect_to menus_path, notice: added_message(@from_date, @to_date)
     else
@@ -18,7 +18,7 @@ class MenusController < ApplicationController
 
   private
 
-  def menu_params
+  def initialize_menu_params
     period = params[:menu][:period].to_i
     @from_date = Date.parse(params[:menu][:date])
     @to_date = @from_date + period - 1
