@@ -7,4 +7,4 @@ ja:
       one_day: 1日
       seven_days: 7日
       thirty_days: 30日
-      day: '%{i}日'
+      day: '%{one_day}日'

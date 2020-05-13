@@ -12,7 +12,7 @@ module MenusHelper
       cooking_repertoie = CookingRepertoire.valid.where.not(id: exclude_repertoire)
       break if cooking_repertoie.empty?
 
-      @not_duplicate_days[I18n.t('.menus.new.day', i: i)] = i
+      @not_duplicate_days[I18n.t('.menus.new.day', one_day: i)] = i
     end
     @not_duplicate_days
   end
