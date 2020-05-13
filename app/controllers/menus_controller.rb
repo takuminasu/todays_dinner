@@ -12,7 +12,7 @@ class MenusController < ApplicationController
     if Menu.make(@from_date, @to_date, @not_duplicate)
       redirect_to menus_path, notice: added_message(@from_date, @to_date)
     else
-      redirect_to new_menu_path, notice: t('.fail_create')
+      redirect_to new_menu_path, notice: t('.creation_failed')
     end
   end
 
