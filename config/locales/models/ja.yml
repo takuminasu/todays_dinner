@@ -16,6 +16,7 @@ ja:
         period:
           one_day: 1日
           seven_days: 7日
+        not_duplicate: 重複しない日数
     errors:
       messages:
         no_select: タグを1つ以上指定してください
