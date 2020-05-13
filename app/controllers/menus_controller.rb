@@ -9,7 +9,7 @@ class MenusController < ApplicationController
   end
 
   def create
-    if Menu.make(@from_date, @to_date, @not_duplicate)
+    if Menu.make(@from_date, @to_date, @not_duplicate_day)
       redirect_to menus_path, notice: added_message(@from_date, @to_date)
     else
       redirect_to new_menu_path, notice: t('.creation_failed')
@@ -22,7 +22,7 @@ class MenusController < ApplicationController
     period = params[:menu][:period].to_i
     @from_date = Date.parse(params[:menu][:date])
     @to_date = @from_date + period - 1
-    @not_duplicate = params[:menu][:not_duplicate].to_i
+    @not_duplicate_day = params[:menu][:not_duplicate_day].to_i
   end
 
   def added_message(from_date, to_date)

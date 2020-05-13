@@ -2,6 +2,6 @@
 = form_with model: @menu, local: true do |form|
   = form.date_field :date, value: Date.today
   div = form.select :period, options_for_select(periods)
-  div = form.label :not_duplicate
-  div = form.select :not_duplicate,  options_for_select(not_duplicate_days)
+  div = form.label :not_duplicate_day
+  div = form.select :not_duplicate_day,  options_for_select(not_duplicate_days)
   div = form.submit
