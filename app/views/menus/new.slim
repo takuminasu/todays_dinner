@@ -1,3 +1,4 @@
+= flash.notice
 = form_with model: @menu, local: true do |form|
   = form.date_field :date, value: Date.today
   div = form.select :period, options_for_select(periods)
