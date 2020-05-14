@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_063657) do
+ActiveRecord::Schema.define(version: 2020_05_14_044713) do
 
   create_table "cooking_repertoire_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cooking_repertoire_id", null: false
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2020_04_24_063657) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_cooking_repertoires_on_name", unique: true
+  end
+
+  create_table "menu_candidate_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_menu_candidate_tags_on_tag_id"
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -46,5 +53,6 @@ ActiveRecord::Schema.define(version: 2020_04_24_063657) do
 
   add_foreign_key "cooking_repertoire_tags", "cooking_repertoires"
   add_foreign_key "cooking_repertoire_tags", "tags"
+  add_foreign_key "menu_candidate_tags", "tags"
   add_foreign_key "menus", "cooking_repertoires"
 end

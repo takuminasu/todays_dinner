@@ -1,0 +1,2 @@
+class MenuCandidateTag < ApplicationRecord
+end
