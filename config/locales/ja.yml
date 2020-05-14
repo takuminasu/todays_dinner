@@ -13,6 +13,7 @@ ja:
     create:
       added_menu: '%{day}の献立を作成しました'
       added_menus: '%{start_day}から%{end_day}までの献立を作成しました'
+      creation_failed: 献立の作成に失敗しました。重複しない日数を減らして再度作成してください
   cooking_repertoire_tags:
     create:
       deleted_repertoire: レパートリー名「%{name}」を削除しました。
