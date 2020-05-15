@@ -37,7 +37,7 @@ class MenusController < ApplicationController
   end
 
   def repertoire_candidates
-    candidate_tags = MenuCandidateTag.all.map { |candidate_tag| Tag.find_by(id: candidate_tag.tag_id) }
+    candidate_tags = Tag.joins(:menu_candidate_tag)
     exclude_tags = Tag.where.not(id: candidate_tags)
     exclude_repertoires = CookingRepertoire.joins(:tags).where(tags: { id: exclude_tags })
     @repertoire_candidates = CookingRepertoire.where.not(id: exclude_repertoires)
