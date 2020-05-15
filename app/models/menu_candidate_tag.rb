@@ -1,4 +1,6 @@
 class MenuCandidateTag < ApplicationRecord
+  belongs_to :tag
+
   def self.make(tag_candidates)
     MenuCandidateTag.where.not(tag_id: tag_candidates).destroy_all
     tag_candidates.each do |menu_candidate_tag|
