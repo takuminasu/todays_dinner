@@ -6,10 +6,13 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @tags = Tag.category
   end
 
   def create
-    if Menu.make(@from_date, @to_date, @not_duplicate_day)
+    MenuCandidateTag.make(params[:tag_candidates][:tags])
+    repertoire_candidates
+    if Menu.make(@from_date, @to_date, @not_duplicate_day, @repertoire_candidates)
       redirect_to menus_path, notice: added_message(@from_date, @to_date)
     else
       redirect_to new_menu_path, notice: t('.creation_failed')
@@ -31,5 +34,12 @@ class MenusController < ApplicationController
     else
       t('.added_menus', { start_day: l(from_date), end_day: l(to_date) })
     end
+  end
+
+  def repertoire_candidates
+    candidate_tags = MenuCandidateTag.all.map { |candidate_tag| Tag.find_by(id: candidate_tag.tag_id) }
+    exclude_tags = Tag.where.not(id: candidate_tags)
+    exclude_repertoires = CookingRepertoire.joins(:tags).where(tags: { id: exclude_tags })
+    @repertoire_candidates = CookingRepertoire.where.not(id: exclude_repertoires)
   end
 end
