@@ -1,7 +1,16 @@
 = flash.notice
 = form_with model: @menu, local: true do |form|
-  = form.date_field :date, value: Date.today
+  div = form.label :date
+  div = form.date_field :date, value: Date.today
+  div = form.label :period
   div = form.select :period, options_for_select(periods)
   div = form.label :not_duplicate_day
   div = form.select :not_duplicate_day,  options_for_select(not_duplicate_days)
+  - @tags.each do |tag|
+    - if MenuCandidateTag.where(tag_id: tag).exists? || MenuCandidateTag.all.empty?
+      = check_box_tag 'tag_candidates[tags][]', tag.id, checked = true, id: tag.id
+    - else
+      = check_box_tag 'tag_candidates[tags][]', tag.id, checked = false, id: tag.id
+    = label_tag :tag, tag.name, for: tag.id
+  p = t('.menus_are_created_from_repertoires_that_include_checked_tags')
   div = form.submit

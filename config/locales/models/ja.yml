@@ -12,10 +12,8 @@ ja:
       tag:
         delete: 削除
       menu:
-        date: 献立
-        period:
-          one_day: 1日
-          seven_days: 7日
+        date: 作成開始日
+        period: 作成日数
         not_duplicate_day: 重複しない日数
     errors:
       messages:
