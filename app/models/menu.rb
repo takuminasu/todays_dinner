@@ -27,6 +27,8 @@ class Menu < ApplicationRecord
       (1..not_duplicate_day).each do |i|
         before_day = day - i
         before_menu = Menu.find_by(date: before_day)
+        next if before_menu.nil?
+
         cooking_repertoire_id = before_menu.cooking_repertoire_id
         tag = CookingRepertoire.find(cooking_repertoire_id).tags
         tags += tag
