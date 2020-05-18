@@ -4,7 +4,7 @@ module MenusHelper
   end
 
   def not_duplicate_days
-    @not_duplicate_days = {}
+    not_duplicate_days = {}
     tags = []
     (1..7).each do |i|
       tags += before_tags(i)
@@ -12,15 +12,17 @@ module MenusHelper
       cooking_repertoire = CookingRepertoire.valid.where.not(id: exclude_repertoire)
       break if cooking_repertoire.empty?
 
-      @not_duplicate_days[I18n.t('.menus.new.day', one_day: i)] = i
+      not_duplicate_days[I18n.t('.menus.new.day', one_day: i)] = i
     end
-    @not_duplicate_days
+    not_duplicate_days
   end
 
   def before_tags(num)
     before_day = Date.today - num
     before_menu = Menu.find_by(date: before_day)
-    cooking_repertoire_id = before_menu[:cooking_repertoire_id]
+    return [] if before_menu.nil?
+
+    cooking_repertoire_id = before_menu.cooking_repertoire_id
     CookingRepertoire.find(cooking_repertoire_id).tags
   end
 end
