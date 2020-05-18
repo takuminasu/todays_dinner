@@ -20,11 +20,9 @@ module MenusHelper
   def before_tags(num)
     before_day = Date.today - num
     before_menu = Menu.find_by(date: before_day)
-    if before_menu.nil?
-      []
-    else
-      cooking_repertoire_id = before_menu.cooking_repertoire_id
-      CookingRepertoire.find(cooking_repertoire_id).tags
-    end
+    return [] if before_menu.nil?
+
+    cooking_repertoire_id = before_menu.cooking_repertoire_id
+    CookingRepertoire.find(cooking_repertoire_id).tags
   end
 end
