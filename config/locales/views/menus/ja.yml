@@ -1,8 +1,10 @@
 ja:
   menus:
     index:
-      decide_menu: 献立を決める
-      to_tags: レパートリー一覧へ
+      menus: 献立
+      decide_menu: 献立作成
+      tags: レパートリー
+      add_repertoire: レパートリー追加
     new:
       one_day: 1日
       seven_days: 7日
