@@ -1,15 +1,15 @@
-ul.nav.nav-justified.fixed-bottom.bg-warning
+ul.nav.nav-justified.nav-tabs.fixed-bottom.bg-warning
   li.nav-item.border-right
     i.fas.fa-calendar-minus
-    = link_to t('.menus'), menus_path, class: 'nav-link text-dark'
+    = link_to t('.menus'), menus_path, class: "nav-link text-dark #{'active' if current_page?(menus_path)}"
   li.nav-item.border-right
     i.fas.fa-calendar-minus
     i.fas.fa-pen
-    = link_to t('.decide_menu'), new_menu_path, class: 'nav-link text-dark'
+    = link_to t('.decide_menu'), new_menu_path, class: "nav-link text-dark #{'active' if current_page?(new_menu_path)}"
   li.nav-item.border-right
     i.fas.fa-book-open
-    = link_to t('.tags'), tags_path, class: 'nav-link text-dark'
+    = link_to t('.tags'), tags_path, class: "nav-link text-dark #{'active' if current_page?(tags_path)}"
   li.nav-item
     i.fas.fa-book-open
     i.fas.fa-plus
-    = link_to t('.add_repertoire'), new_cooking_repertoire_path, class: 'nav-link text-dark'
+    = link_to t('.add_repertoire'), new_cooking_repertoire_path, class: "nav-link text-dark #{'active' if current_page?(new_cooking_repertoire_path)}"
