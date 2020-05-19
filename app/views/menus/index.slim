@@ -11,7 +11,17 @@ div = link_to t('.decide_menu'), new_menu_path
 div = link_to t('.to_tags'), tags_path
 
 ul.nav.nav-justified
-  li.nav-item = link_to t('.menus'), menus_path, class: 'nav-link'
-  li.nav-item = link_to t('.decide_menu'), new_menu_path, class: 'nav-link'
-  li.nav-item = link_to t('.tags'), tags_path, class: 'nav-link'
-  li.nav-item = link_to t('.add_repertoire'), new_cooking_repertoire_path, class: 'nav-link'
+  li.nav-item
+    i.fas.fa-calendar-minus
+    = link_to t('.menus'), menus_path, class: 'nav-link'
+  li.nav-item
+    i.fas.fa-calendar-minus
+    i.fas.fa-pen
+    = link_to t('.decide_menu'), new_menu_path, class: 'nav-link'
+  li.nav-item
+    i.fas.fa-book-open
+    = link_to t('.tags'), tags_path, class: 'nav-link'
+  li.nav-item
+    i.fas.fa-book-open
+    i.fas.fa-plus
+    = link_to t('.add_repertoire'), new_cooking_repertoire_path, class: 'nav-link'
