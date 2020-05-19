@@ -1,5 +1,4 @@
 = flash.notice
-div = link_to t('.decide_menu'), new_menu_path
 - @menus.each do |menu|
   div = l(menu.date)
   h3 = menu.cooking_repertoire.name
@@ -8,4 +7,3 @@ div = link_to t('.decide_menu'), new_menu_path
       = tag.name
     - else
       = "#{tag.name}, "
-div = link_to t('.to_tags'), tags_path
