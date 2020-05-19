@@ -1,10 +1,5 @@
 ja:
   menus:
-    index:
-      menus: 献立
-      decide_menu: 献立作成
-      tags: レパートリー
-      add_repertoire: レパートリー追加
     new:
       one_day: 1日
       seven_days: 7日
