@@ -2,6 +2,6 @@ ja:
   layouts:
     footer:
       menus: 献立
-      decide_menu: 献立作成
-      tags: レパートリー
+      make_menu: 献立作成
+      repertoires: レパートリー
       add_repertoire: レパートリー追加
