@@ -1,7 +1,7 @@
 ja:
   cooking_repertoires:
     new:
-      title: 新規登録
+      title: レパートリー新規登録
     index:
       title: レパートリー一覧
     show: 
@@ -12,6 +12,6 @@ ja:
       edit: 編集
       delete: 削除
     edit:
-      title: レパートリー名編集
+      title: レパートリー編集
     form:
       supplement_info: 複数選択可、3つまで
