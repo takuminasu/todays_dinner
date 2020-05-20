@@ -1,6 +1,18 @@
-.nav-link {
-  font-size: 0.5rem;
-  a{
-    display: block;
+body {
+  padding-bottom: 70px;
+}
+
+.nav-item{
+  position: relative;
+  padding: 0.5rem;
+  .nav-link {
+    font-size: 0.5rem;
+    border: none;
+  }
+}
+
+.nav-item.active {
+  a {
+    color: #ffc107 !important;
   }
 }
