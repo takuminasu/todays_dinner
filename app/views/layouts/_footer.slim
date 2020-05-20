@@ -1,0 +1,15 @@
+ul.nav.nav-justified.nav-tabs.fixed-bottom.bg-light
+  li class="nav-item border-right text-secondary #{'active text-warning' if current_page?(menus_path)}"
+    i.fas.fa-calendar-minus
+    = link_to t('.menus'), menus_path, class: 'nav-link text-secondary stretched-link btn-ignore'
+  li class="nav-item border-right text-secondary #{'active text-warning' if current_page?(new_menu_path)}"
+    i.fas.fa-calendar-minus
+    i.fas.fa-pen
+    = link_to t('.make_menu'), new_menu_path, class: 'nav-link text-secondary stretched-link'
+  li class="nav-item border-right text-secondary #{'active text-warning' if current_page?(tags_path)}"
+    i.fas.fa-book-open
+    = link_to t('.repertoires'), tags_path, class: 'nav-link text-secondary stretched-link'
+  li class="nav-item text-secondary #{'active text-warning' if current_page?(new_cooking_repertoire_path)}"
+    i.fas.fa-book-open
+    i.fas.fa-plus
+    = link_to t('.add_repertoire'), new_cooking_repertoire_path, class: 'nav-link text-secondary stretched-link'
