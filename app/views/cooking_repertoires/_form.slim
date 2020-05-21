@@ -9,7 +9,7 @@
     .required.my-2 = t('.supplement_info')
     = form.collection_check_boxes :tag_ids, tags, :id, :name do |b|
       = b.label(class: 'form-control mb-3 font-size-lg') do
-        = b.check_box
+        = b.check_box class: 'mr-2'
         = b.object.name
   .form-group
     = form.submit class: 'btn btn-lg btn-warning text-light form-control mb-3'
