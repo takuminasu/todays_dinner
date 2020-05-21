@@ -1,0 +1,27 @@
+form {
+  padding-top: 5rem;
+
+  .required::before{
+    font-size: 0.8rem;
+    content: "必須";
+    color: white;
+    background-color: red;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    margin-right: 0.2rem;
+  }
+
+  .required {
+    .field_with_errors {
+      display: inline-block;
+    }
+  }
+
+  .input-lg {
+    font-size: 1.5rem;
+  }
+
+  .font-size-lg{
+    font-size: 1.2rem;
+  }  
+}
