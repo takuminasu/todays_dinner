@@ -1,24 +1,27 @@
 = flash.notice
-h1 = t('.title')
-li
-  = CookingRepertoire.human_attribute_name(:id) + t('.break')
-  = @cooking_repertoire.id
-li
-  = CookingRepertoire.human_attribute_name(:name) + t('.break')
-  = @cooking_repertoire.name
-li
-  = CookingRepertoire.human_attribute_name(:tag) + t('.break')
-  - @cooking_repertoire.cooking_repertoire_tags.each.with_index(1) do |cooking_repertoire_tag, index|
-    - if index == @cooking_repertoire.cooking_repertoire_tags.size
-      = cooking_repertoire_tag.tag.name
-    - else
-      = "#{cooking_repertoire_tag.tag.name}, "
-li
-  = CookingRepertoire.human_attribute_name(:created_at) + t('.break')
-  = @cooking_repertoire.created_at.to_s(:datetime_jp)
-li
-  = CookingRepertoire.human_attribute_name(:updated_at) + t('.break')
-  = @cooking_repertoire.updated_at.to_s(:datetime_jp)
-div = link_to t('.edit'), edit_cooking_repertoire_path
-div = link_to t('.delete'), cooking_repertoire_tags_path(@cooking_repertoire), method: :post, data: { confirm: t('.delete_confirmation', {name: @cooking_repertoire.name}) }
-div = link_to t('.back_list'), tags_path
+h4.py-3.bg-warning.text-light.text-center.position-relative
+  = t('.title')
+  .d-flex.justify-content-between
+    = link_to t('.back'), tags_path, class: 'small position-absolute link'
+    = link_to t('.edit'), edit_cooking_repertoire_path, class: 'small position-absolute link right-link'
+table.table.mt-5.border-bottom
+  tbody
+    tr
+      th = CookingRepertoire.human_attribute_name(:name)
+      td = @cooking_repertoire.name
+    tr
+      th = CookingRepertoire.human_attribute_name(:tag)
+      td
+        - @cooking_repertoire.cooking_repertoire_tags.each.with_index(1) do |cooking_repertoire_tag, index|
+          - if index == @cooking_repertoire.cooking_repertoire_tags.size
+            = cooking_repertoire_tag.tag.name
+          - else
+            = "#{cooking_repertoire_tag.tag.name}, "
+    tr
+      th = CookingRepertoire.human_attribute_name(:created_at)
+      td = @cooking_repertoire.created_at.to_s(:datetime_jp)
+    tr
+      th = CookingRepertoire.human_attribute_name(:updated_at)
+      td = @cooking_repertoire.updated_at.to_s(:datetime_jp)
+.container.text-center
+  = link_to t('.delete'), cooking_repertoire_tags_path(@cooking_repertoire), method: :post, data: { confirm: t('.delete_confirmation', {name: @cooking_repertoire.name}) }, class: 'btn btn-danger center-block'

@@ -6,12 +6,13 @@ ja:
       title: レパートリー一覧
     show: 
       title: レパートリーの詳細
-      back_list: 一覧へ戻る
+      back: 〈 戻る
       delete_confirmation: レパートリー名「%{name}」を削除します。よろしいですか？
       break: ': '
       edit: 編集
       delete: 削除
     edit:
       title: レパートリー編集
+      back: 〈 戻る
     form:
       supplement_info: 複数選択可、3つまで
