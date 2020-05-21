@@ -7,7 +7,7 @@ ja:
     attributes:
       cooking_repertoire:
         id: ID
-        name: レパートリー名
+        name: 名前
         tag: タグ
       tag:
         delete: 削除

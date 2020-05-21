@@ -1,10 +1,15 @@
 = form_with model: cooking_repertoire, local: true do |form|
   - if cooking_repertoire.errors.any?
-    ul
-      - cooking_repertoire.errors.full_messages.each do |message|
-        li = message
-  .required = form.label :name
-  = form.text_field :name, required: true
-  .required = form.collection_check_boxes :tag_ids, tags, :id, :name
-  div = t('.supplement_info')
-  = form.submit
+    - cooking_repertoire.errors.full_messages.each do |message|
+      .alert.alert-danger = message
+  .form-group
+    .required = form.label :name
+    = form.text_field :name, class: 'form-control input-lg'
+  .form-group
+    .required.my-2 = t('.supplement_info')
+    = form.collection_check_boxes :tag_ids, tags, :id, :name do |b|
+      = b.label(class: 'form-control mb-3 font-size-lg') do
+        = b.check_box class: 'mr-2'
+        = b.object.name
+  .form-group
+    = form.submit class: 'btn btn-lg btn-warning text-light form-control mb-3'
