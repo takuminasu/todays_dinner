@@ -1,10 +1,18 @@
-= flash.notice
-h1 = t('.title')
+h4.py-3.bg-warning.text-light.text-center.fixed-top
+  = t('.title')
+.container
+  - if flash.notice.present? 
+    .alert.alert-success.my-2 = flash.notice
 - @tags.each do |tag|
-  h2 = tag.name
-  - if tag.cooking_repertoires.present?
-    - tag.cooking_repertoires.each do |cooking_repertoire|
-      - unless cooking_repertoire.tags.exists?(name: t('activerecord.attributes.tag.delete'))
-        li = link_to cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire.id)
-  - else
-    = t('.no_repertoire_name')
+  .container
+    h5.border-bottom.py-3 = tag.name
+  .container.d-flex.flex-wrap
+    - if tag.cooking_repertoires.present?
+      - tag.cooking_repertoires.each do |cooking_repertoire|
+        - unless cooking_repertoire.tags.exists?(name: t('activerecord.attributes.tag.delete'))
+          .col-6.col-md-3.p-2
+            .card
+              .card-body.w-100.h-100.position-absolute
+                = link_to cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire.id), class: 'stretched-link '
+    - else
+      = t('.no_repertoire_name')

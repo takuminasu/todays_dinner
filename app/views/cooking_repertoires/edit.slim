@@ -1,6 +1,6 @@
-h4.py-3.bg-warning.text-light.text-center.position-relative
+h4.py-3.bg-warning.text-light.text-center.fixed-top
   = t('.title')
   .d-flex.justify-content-between
     = link_to t('.back'), cooking_repertoire_path(@cooking_repertoire), class: 'small position-absolute link'
-.container
+.container.mt-3
   = render 'form', cooking_repertoire: @cooking_repertoire, tags: @tags
