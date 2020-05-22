@@ -6,3 +6,4 @@ ja:
       thirty_days: 30日
       day: '%{one_day}日'
       menus_are_created_from_repertoires_that_include_checked_tags: ※チェックがついているタグを含むレパートリーから献立が作成されます
+      title: 献立作成
