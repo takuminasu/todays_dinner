@@ -1,4 +1,7 @@
-= flash.notice
+h4.py-3.text-center.bg-primary.text-light.fixed-top = t('.title')
+.container.pt-3
+  - if flash.notice.present? 
+    .alert.alert-success = flash.notice
 - @menus.each do |menu|
   div = l(menu.date)
   h3 = menu.cooking_repertoire.name
