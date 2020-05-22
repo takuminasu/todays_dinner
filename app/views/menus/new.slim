@@ -1,17 +1,25 @@
 h4.py-3.text-center.bg-primary.text-light.fixed-top = t('.title')
-= flash.notice
-= form_with model: @menu, local: true do |form|
-  div = form.label :date
-  div = form.date_field :date, value: Date.today
-  div = form.label :period
-  div = form.select :period, options_for_select(periods)
-  div = form.label :not_duplicate_day
-  div = form.select :not_duplicate_day,  options_for_select(not_duplicate_days)
-  - @tags.each do |tag|
-    - if MenuCandidateTag.where(tag_id: tag).exists? || MenuCandidateTag.all.empty?
-      = check_box_tag 'tag_candidates[tags][]', tag.id, checked = true, id: tag.id
-    - else
-      = check_box_tag 'tag_candidates[tags][]', tag.id, checked = false, id: tag.id
-    = label_tag :tag, tag.name, for: tag.id
-  p = t('.menus_are_created_from_repertoires_that_include_checked_tags')
-  div = form.submit
+.container.pt-3
+  - if flash.notice.present? 
+    .alert.alert-danger = flash.notice
+  = form_with model: @menu, local: true do |form|
+    .form-group
+      = form.label :date
+      = form.date_field :date, value: Date.today, class: 'form-control'
+    .form-group
+      = form.label :period
+      = form.select :period, options_for_select(periods), {}, class: 'form-control'
+    .form-group
+      = form.label :not_duplicate_day
+      = form.select :not_duplicate_day, options_for_select(not_duplicate_days), {}, class: 'form-control'
+    .form-group
+      p = t('.menus_are_created_from_repertoires_that_include_checked_tags')
+      - @tags.each do |tag|
+        .form-control.mb-3.font-size-lg
+          - if MenuCandidateTag.where(tag_id: tag).exists? || MenuCandidateTag.all.empty?
+            = check_box_tag 'tag_candidates[tags][]', tag.id, checked = true, id: tag.id, class: 'mr-2'
+          - else
+            = check_box_tag 'tag_candidates[tags][]', tag.id, checked = false, id: tag.id, class: 'mr-2'
+          = label_tag :tag, tag.name, for: tag.id
+    .form-group
+      = form.submit class: 'btn btn-lg btn-warning text-light form-control mb-3'
