@@ -2,6 +2,8 @@ ja:
   menus:
     index:
       title: 献立
+      date: 日付
+      staple_food: 主食
     new:
       one_day: 1日
       seven_days: 7日
