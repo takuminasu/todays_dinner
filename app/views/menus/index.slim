@@ -1,9 +1,14 @@
-= flash.notice
-- @menus.each do |menu|
-  div = l(menu.date)
-  h3 = menu.cooking_repertoire.name
-  - menu.cooking_repertoire.tags.each.with_index(1) do |tag, index|
-    - if index == menu.cooking_repertoire.tags.size
-      = tag.name
-    - else
-      = "#{tag.name}, "
+h4.py-3.text-center.bg-warning.text-light.fixed-top = t('.title')
+- if flash.notice.present? 
+  .container.pt-3
+    .alert.alert-success = flash.notice
+table.table.table-striped
+  thead
+    tr.bg-light
+      th = t('.date')
+      th = t('.staple_food')
+  tbody
+    - @menus.each do |menu|
+      tr
+        td = l menu.date, format: :short
+        td = menu.cooking_repertoire.name
