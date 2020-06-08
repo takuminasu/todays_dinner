@@ -22,10 +22,19 @@ class MenusController < ApplicationController
   private
 
   def initialize_menu_params
-    period = params[:menu][:period].to_i
-    @from_date = Date.parse(params[:menu][:date])
-    @to_date = @from_date + period - 1
+    @period = params[:menu][:period].to_i
+    @date = params[:menu][:date]
+    check_if_the_date_is_valid
     @not_duplicate_day = params[:menu][:not_duplicate_day].to_i
+  end
+
+  def check_if_the_date_is_valid
+    if @date.blank?
+      redirect_to new_menu_path, notice: t('.creation_failedon_start_date')
+    else
+      @from_date = Date.parse(@date)
+      @to_date = @from_date + @period - 1
+    end
   end
 
   def added_message(from_date, to_date)
