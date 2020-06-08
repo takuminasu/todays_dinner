@@ -2,7 +2,7 @@ h4.py-3.bg-warning.text-light.text-center.fixed-top
   = t('.title')
 .container
   - if flash.notice.present? 
-    .alert.alert-success.my-2 = flash.notice
+    .alert.alert-success.my-2.text-break = flash.notice
 - @tags.each do |tag|
   .container
     h5.border-bottom.py-3 = tag.name
@@ -12,7 +12,7 @@ h4.py-3.bg-warning.text-light.text-center.fixed-top
         - unless cooking_repertoire.tags.exists?(name: t('activerecord.attributes.tag.delete'))
           .col-6.col-md-3.p-2
             .card
-              .card-body.w-100.h-100.position-absolute
-                = link_to cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire.id), class: 'stretched-link '
+              .card-body.w-100.h-100.position-absolute.overflow-auto
+                = link_to cooking_repertoire.name, cooking_repertoire_path(cooking_repertoire.id), class: 'stretched-link'
     - else
       = t('.no_repertoire_name')
