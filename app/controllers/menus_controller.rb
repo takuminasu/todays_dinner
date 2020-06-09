@@ -1,5 +1,7 @@
 class MenusController < ApplicationController
   before_action :initialize_menu_params, only: [:create]
+  before_action :save_menu_candidate_tags, only: [:create]
+
   def index
     @menus = Menu.where('date >= ?', Date.today).order(:date)
   end
@@ -10,7 +12,6 @@ class MenusController < ApplicationController
   end
 
   def create
-    MenuCandidateTag.make(params[:tag_candidates][:tags])
     repertoire_candidates
     if Menu.make(@from_date, @to_date, @not_duplicate_day, @repertoire_candidates)
       redirect_to menus_path, notice: added_message(@from_date, @to_date)
@@ -34,6 +35,15 @@ class MenusController < ApplicationController
     else
       @from_date = Date.parse(@date)
       @to_date = @from_date + @period - 1
+    end
+  end
+
+  def save_menu_candidate_tags
+    @tag_candidates = params[:tag_candidates]
+    if @tag_candidates.nil?
+      redirect_to new_menu_path, notice: t('.tag_candidate_nil')
+    else
+      MenuCandidateTag.make(@tag_candidates[:tags])
     end
   end
 
