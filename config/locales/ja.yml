@@ -10,6 +10,8 @@ ja:
     edit:
       delete: 削除
   menus:
+    new: 
+      add_cooking_repertoire: レパートリーを登録してください
     create:
       added_menu: '%{day}の献立を作成しました'
       added_menus: '%{start_day}から%{end_day}までの献立を作成しました'

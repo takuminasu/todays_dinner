@@ -7,6 +7,9 @@ class MenusController < ApplicationController
   end
 
   def new
+    unless CookingRepertoire.valid.exists?
+      redirect_to new_cooking_repertoire_path, notice: t('.add_cooking_repertoire')
+    end
     @menu = Menu.new
     @tags = Tag.category
   end
