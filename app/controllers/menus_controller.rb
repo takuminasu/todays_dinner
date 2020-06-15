@@ -1,16 +1,20 @@
 class MenusController < ApplicationController
   before_action :initialize_menu_params, only: [:create]
+  before_action :save_menu_candidate_tags, only: [:create]
+
   def index
     @menus = Menu.where('date >= ?', Date.today).order(:date)
   end
 
   def new
+    unless CookingRepertoire.valid.exists?
+      redirect_to new_cooking_repertoire_path, notice: t('.add_cooking_repertoire')
+    end
     @menu = Menu.new
     @tags = Tag.category
   end
 
   def create
-    MenuCandidateTag.make(params[:tag_candidates][:tags])
     repertoire_candidates
     if Menu.make(@from_date, @to_date, @not_duplicate_day, @repertoire_candidates)
       redirect_to menus_path, notice: added_message(@from_date, @to_date)
@@ -22,10 +26,28 @@ class MenusController < ApplicationController
   private
 
   def initialize_menu_params
-    period = params[:menu][:period].to_i
-    @from_date = Date.parse(params[:menu][:date])
-    @to_date = @from_date + period - 1
+    @period = params[:menu][:period].to_i
+    @date = params[:menu][:date]
+    check_if_the_date_is_valid
     @not_duplicate_day = params[:menu][:not_duplicate_day].to_i
+  end
+
+  def check_if_the_date_is_valid
+    if @date.blank?
+      redirect_to new_menu_path, notice: t('.creation_failedon_start_date')
+    else
+      @from_date = Date.parse(@date)
+      @to_date = @from_date + @period - 1
+    end
+  end
+
+  def save_menu_candidate_tags
+    @tag_candidates = params[:tag_candidates]
+    if @tag_candidates.nil?
+      redirect_to new_menu_path, notice: t('.tag_candidate_nil')
+    else
+      MenuCandidateTag.make(@tag_candidates[:tags])
+    end
   end
 
   def added_message(from_date, to_date)

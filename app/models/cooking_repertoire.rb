@@ -1,5 +1,6 @@
 class CookingRepertoire < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+
   validate :tag_size_limit
 
   has_many :cooking_repertoire_tags

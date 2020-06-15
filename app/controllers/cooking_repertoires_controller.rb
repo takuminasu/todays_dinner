@@ -2,7 +2,7 @@ class CookingRepertoiresController < ApplicationController
   before_action :find_repertoire, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cooking_repertoires = CookingRepertoire.all
+    redirect_to new_cooking_repertoire_path
   end
 
   def new
